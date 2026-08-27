@@ -75,7 +75,7 @@ function renderTransactionList() {
 }
 
 function renderBalance() {
-  const balanceEl = document.getElementById("blance");
+  const balanceEl = document.getElementById("balance"); // 오타 수정: "blance" -> "balance"
   balanceEl.textContent = formatCurrency(ACCOUNTS[0].balance);
 }
 
@@ -95,11 +95,13 @@ function calcInterest(balance, rate) {
 const interestBtn = document.querySelector("#interestBtn");
 interestBtn.addEventListener("click", () => {
   const rate = 0.0175; // 우대금리 연 1.75%
-  const interest = calcInterest(ACCOUNTS[0].balance, rate);
+  const interest = Math.round(calcInterest(ACCOUNTS[0].balance, rate));
   const newBalance = ACCOUNTS[0].balance + interest;
+
   document.querySelector("#interestResult").textContent =
-    "이자 " + interest + "원 적용 → 잔액 " + newBalance + "원";
-});
+    "이자 " + formatCurrency(interest) +
+    " 적용 → 잔액 " + formatCurrency(newBalance);
+}); //이자 및 잔액 표시 내 소수점 삭제
 
 // ---------- 환율 ----------
 
@@ -107,8 +109,9 @@ async function fetchExchangeRate() {
   return new Promise((resolve) => setTimeout(() => resolve(1384), 500));
 }
 
-const rate = fetchExchangeRate();
-document.querySelector("#exchangeRate").textContent = rate + "원";
+fetchExchangeRate().then((rate) => {
+  document.querySelector("#exchangeRate").textContent = formatCurrency(rate);
+});  // 환율 표시 통화 형식으로 표시
 
 // ---------- 이체 확인 모달 ----------
 
@@ -136,7 +139,7 @@ renderAccountList();
 renderCategorySummary();
 renderTransactionList();
 
-const depositBtn = document.querySelector("#depositBtn");
-depositBtn.addEventListener("click", handleDeposit());
+const depositBtn = document.querySelector("#depositBtn"); // 입금 버튼 선택
+depositBtn.addEventListener("click", handleDeposit); // 입금 버튼 클릭 시 handleDeposit 함수 호출
 
 renderBalance();
