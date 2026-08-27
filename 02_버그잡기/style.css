@@ -100,6 +100,7 @@ h1 {
 
 /* 이체 확인 모달 */
 .modal-overlay {
+  position: fixed; // 화면 전체를 덮는 오버레이
   z-index: 500;
   top: 0;
   left: 0;
