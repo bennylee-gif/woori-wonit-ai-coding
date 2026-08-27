@@ -1,0 +1,152 @@
+<!-- 은행 계좌 아래로 입출금 내역이 보이는 화면 만들어줘  -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>은행 계좌</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background: #f3f6fa;
+      color: #182230;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 24px;
+    }
+
+    .card,
+    .history {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(28, 49, 75, 0.08);
+    }
+
+    .card {
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      color: #718096;
+      font-size: 14px;
+    }
+
+    .account {
+      margin-top: 8px;
+      color: #4a5568;
+      font-size: 14px;
+    }
+
+    .balance {
+      margin: 18px 0 0;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .history {
+      padding: 22px 20px;
+    }
+
+    .history h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .transaction {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-top: 1px solid #edf0f4;
+    }
+
+    .transaction-info strong,
+    .transaction-info span {
+      display: block;
+    }
+
+    .transaction-info strong {
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+
+    .transaction-info span {
+      color: #8994a3;
+      font-size: 12px;
+    }
+
+    .amount {
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .deposit {
+      color: #2878e8;
+    }
+
+    .withdrawal {
+      color: #e14b55;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>내 계좌</h1>
+
+    <section class="card" aria-label="계좌 정보">
+      <div class="label">우리은행 보통예금</div>
+      <div class="account">1002-***-123456</div>
+      <p class="balance">1,245,000원</p>
+    </section>
+
+    <section class="history" aria-label="입출금 내역">
+      <h2>입출금 내역</h2>
+      <div class="transaction">
+        <div class="transaction-info">
+          <strong>급여 입금</strong>
+          <span>2024. 06. 25</span>
+        </div>
+        <span class="amount deposit">+2,500,000원</span>
+      </div>
+      <div class="transaction">
+        <div class="transaction-info">
+          <strong>카페 결제</strong>
+          <span>2024. 06. 24</span>
+        </div>
+        <span class="amount withdrawal">-5,500원</span>
+      </div>
+      <div class="transaction">
+        <div class="transaction-info">
+          <strong>공과금 납부</strong>
+          <span>2024. 06. 20</span>
+        </div>
+        <span class="amount withdrawal">-82,300원</span>
+      </div>
+      <div class="transaction">
+        <div class="transaction-info">
+          <strong>용돈 입금</strong>
+          <span>2024. 06. 18</span>
+        </div>
+        <span class="amount deposit">+100,000원</span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
