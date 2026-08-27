@@ -1,0 +1,65 @@
+<!-- 모든 요소의 크기 계산 방식을 통일한다. -->
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /* 페이지 전체의 여백, 배경색, 기본 글꼴을 설정한다. */
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #f8faf5;
+    font-family: Arial, sans-serif;
+  }
+
+  /* 계좌 정보를 담는 카드의 크기와 시각적 스타일을 설정한다. */
+  .account-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 계좌번호 제목의 여백과 강조 색상을 설정한다. */
+  .account-info h2 {
+    margin: 0 0 20px;
+    color: #1b77f8;
+    font-size: 1.25rem;
+  }
+
+  /* 잔액과 상태 문단의 간격과 글자 색상을 설정한다. */
+  .account-info p {
+    margin: 10px 0;
+    color: #4b5563;
+    font-size: 1rem;
+  }
+
+  /* 작은 화면에서는 여백과 글자 크기를 줄여 가독성을 유지한다. */
+  @media (max-width: 480px) {
+    body {
+      padding: 16px;
+    }
+
+    .account-card {
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .account-info h2 {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<!-- 계좌번호, 잔액, 상태가 보이는 은행 계좌 카드 한 장 -->
+<div class="account-card">
+  <!-- 계좌 관련 텍스트를 묶어 관리한다. -->
+  <div class="account-info">
+    <h2>계좌번호: 123-456-789</h2>
+    <p>잔액: 1,000,000원</p>
+    <p>상태: 정상</p>
+  </div>
+</div>
